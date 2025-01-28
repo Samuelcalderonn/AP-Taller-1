@@ -1,0 +1,371 @@
+* {
+    margin: 150;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-bo;
+    overflow-x: hidden; /* Evita cualquier desplazamiento horizontal */
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.content-1 {
+    width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-text {
+    max-width: 75%;
+    font-size: 80px;
+    font-family: ogg, "sans-serif";
+    font-weight: 300;
+    line-height: 100px;
+    color: black;
+    margin-bottom: 40px; /* Espacio entre el texto y la imagen */
+}
+
+.main-text-1 {
+    max-width: 150%;
+    font-size: 150px;
+    font-family: ogg, "sans-serif";
+    font-weight: 300;
+    line-height: 120px;
+    color: black;
+    margin-bottom: 100px; /* Espacio entre el texto y la imagen */
+}
+
+.image-container {
+    width: calc(100vw - 120px); /* Resta el ancho de las tiras para evitar que la imagen pase debajo */
+    overflow: hidden; /* Asegura que no haya desbordamiento */
+    display: flex;
+    justify-content: flex-end;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+
+/* Posición del Logo */
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 80px;
+}
+
+.logo img {
+    width: 100%;
+    height: auto;
+}
+
+.stripes {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+}
+
+.stripe {
+    width: 40px; /* Grosor de cada línea */
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    writing-mode: vertical-rl; /* Texto en vertical de derecha a izquierda */
+    text-orientation: mixed;
+    font-size: 22px;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    color: white; /* Para que resalte sobre el fondo */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Colores de las líneas */
+.food { background-color: #4A90E2; }      /* Azul */
+.retail { background-color: #D0021B; }   /* Rojo */
+.community { background-color: #F5A623; } /* Amarillo */
+
+.image-gallery {
+    display: flex;
+    justify-content: flex-start; /* Alinea las imágenes desde el borde izquierdo */
+    gap: 20px; /* Espaciado uniforme entre imágenes */
+    width: calc(100vw - 120px); /* Ajuste para evitar que pasen debajo de las líneas */
+    margin: 50px auto; /* Espaciado superior e inferior */
+    padding-left: 8%; /* Controla la distancia del borde izquierdo */
+}
+
+.gallery-item {
+    text-align: center;
+    flex: 1; /* Hace que todas las imágenes ocupen el mismo espacio */
+    max-width: 300px; /* Limita el tamaño de cada imagen */
+}
+
+.gallery-item img {
+    width: 100%; /* Hace que todas las imágenes tengan el mismo ancho */
+}
+
+.gallery-item p {
+    font-family: "apercu mono", "sans-serif";
+    font-size: 14px;
+    line-height: 21px;
+    color: black;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.home-events {
+    display: flex;
+    justify-content: center; /* Asegura alineación horizontal */
+    align-items: center;
+    gap: 50px; /* Espacio uniforme entre las palabras */
+    margin-top: 50px; /* Espaciado desde la galería de imágenes */
+}
+
+/* Estilo para las palabras laterales */
+.home-events__header-item.side-text {
+    font-family: "PingFang SC", sans-serif;
+    font-size: 60px;
+    font-weight: 500;
+    text-align: center;
+}
+
+/* Estilo para la palabra central */
+.home-events__header-item.center-text h1 {
+    font-family: "ogg", sans-serif;
+    font-size: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-weight: 400;
+    margin: 0;
+    white-space: pre-line; /* Permite que las palabras se dividan en dos líneas */
+}
+
+.home-events__row {
+    position: relative;
+    padding: 75px 0 100px;
+    background-image: linear-gradient(90deg, #000 50%, transparent 0), 
+                      linear-gradient(90deg, #000 50%, transparent 0), 
+                      linear-gradient(90deg, #000 50%, transparent 0), 
+                      linear-gradient(90deg, #000 50%, transparent 0);
+    background-position: 0 0, 0 100%, left 14px, 0 calc(100% - 14px);
+    background-repeat: repeat-x, repeat-x, repeat-x, repeat-x;
+    background-size: 24px 1px, 24px 1px, 24px 1px, 24px 1px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 60px;
+    align-items: center;
+    text-align: center;
+}
+
+.home-events__row-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.home-events__row-item span {
+    font-family: "apercu mono", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.home-events__row-item p {
+    font-family: "apercu mono", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: black;
+}
+
+.home-events__row-item a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.home-events__row-item a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo del botón "See all" */
+.home-events__see-all {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.home-events__see-all a {
+    font-family: "apercu mono", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+}
+
+.home-events__see-all a:hover {
+    background-color: black;
+    color: white;
+    transition: 0.3s;
+}
+
+.home-address {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas: una para el texto y otra para el mapa */
+    grid-column-gap: 60px;
+    padding: 0 60px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+/* Estilos para el texto de la dirección */
+.home-address__text {
+    font-family: "apercu mono", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+}
+
+.home-address__text h3 {
+    margin: 0;
+    text-decoration: none;
+}
+
+/* Estilos para el mapa */
+.home-address__map {
+    width: 100%;
+    height: 200px; /* Ajustar tamaño del mapa */
+    overflow: hidden;
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+.home-address__map-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    border-radius: 10px; /* Opcional: bordes redondeados */
+}
+
+/* Enlace para hacer que toda el área sea clickeable */
+.home-address a {
+    text-decoration: none;
+}
+
+.footer {
+    width: 100%;
+    background-color: white;
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer__row {
+    width: 80%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer__row-item {
+    padding: 55px;
+    background-image: linear-gradient(90deg, #000 50%, transparent 0), 
+                      linear-gradient(90deg, #000 50%, transparent 0), 
+                      linear-gradient(180deg, #000 50%, transparent 0), 
+                      linear-gradient(180deg, #000 50%, transparent 0);
+    background-position: 0 0, 0 100%, 0 0, 100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 30px 1px, 30px 1px, 1px 30px, 1px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    height: 100%;
+}
+
+/* Estilos para el texto del footer */
+.footer__row-item h3 {
+    font-family: "apercu mono", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el enlace */
+.footer__row-item a {
+    font-family: "apercu mono", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    border: 2px solid black;
+    padding: 10px 20px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.footer__row-item a:hover {
+    background-color: black;
+    color: white;
+}
+
+.footer__row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-gap: 60px;
+    margin-bottom: 60px;
+    text-align: center;
+    justify-items: center;
+}
+
+.footer__row-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+/* Estilos para los íconos */
+.footer__row-item svg {
+    width: 40px;
+    height: 40px;
+}
+
+/* Estilos para el texto debajo de los íconos */
+.footer__row-item p {
+    font-family: "apercu mono", sans-serif;
+    font-size: 14px;
+    line-height: 21px;
+    color: black;
+}
+
+/* Estilos generales para los enlaces */
+.footer__row a {
+    text-decoration: none;
+}
