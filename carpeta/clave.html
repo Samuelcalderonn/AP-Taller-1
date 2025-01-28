@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teclado Bancario</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+        }
+        .teclado {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            gap: 10px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .teclado button {
+            width: 60px;
+            height: 60px;
+            font-size: 20px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #ddd;
+        }
+        .teclado button:active {
+            background-color: #bbb;
+        }
+        .input-container {
+            margin-bottom: 10px;
+        }
+        .input-container input {
+            width: 200px;
+            height: 40px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 5px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+        }
+        .blur {
+            filter: blur(8px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="input-container">
+            <input type="password" id="clave" readonly>
+            <button id="toggleVisibility">👁️</button>
+            <button id="borrar">⬅️</button>
+        </div>
+        <div class="teclado" id="teclado">
+            <!-- Los botones se generarán dinámicamente -->
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const teclado = document.getElementById("teclado");
+            const inputClave = document.getElementById("clave");
+            const toggleVisibility = document.getElementById("toggleVisibility");
+            const borrar = document.getElementById("borrar");
+            const numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+            // Mezclar los números aleatoriamente
+            numeros.sort(() => Math.random() - 0.5);
+
+            // Crear botones dinámicamente
+            numeros.forEach(num => {
+                const btn = document.createElement("button");
+                btn.textContent = num;
+                btn.addEventListener("click", () => {
+                    inputClave.value += "*";
+                    inputClave.dataset.realValue = (inputClave.dataset.realValue || "") + num;
+                });
+                teclado.appendChild(btn);
+            });
+
+            // Agregar efecto borroso al entrar al teclado
+            teclado.addEventListener("mouseenter", () => {
+                teclado.classList.add("blur");
+            });
+            teclado.addEventListener("mouseleave", () => {
+                teclado.classList.remove("blur");
+            });
+
+            // Botón para borrar
+            borrar.addEventListener("click", () => {
+                inputClave.value = inputClave.value.slice(0, -1);
+                inputClave.dataset.realValue = (inputClave.dataset.realValue || "").slice(0, -1);
+            });
+
+            // Botón para mostrar/ocultar clave
+            toggleVisibility.addEventListener("click", () => {
+                if (inputClave.type === "password") {
+                    inputClave.type = "text";
+                    inputClave.value = inputClave.dataset.realValue || "";
+                } else {
+                    inputClave.type = "password";
+                    inputClave.value = "*".repeat((inputClave.dataset.realValue || "").length);
+                }
+            });
+        });
+    </script>
+</body>
+</html>
