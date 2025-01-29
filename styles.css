@@ -369,3 +369,84 @@ body {
 .footer__row a {
     text-decoration: none;
 }
+
+
+/* Contenedor de la sección de newsletter */
+.footer__row:last-child .footer__row-item {
+    padding: 30px 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* Estilos para el texto principal */
+.js-email-capture span {
+    font-family: "apercu mono", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Estilos para el mensaje en móvil */
+.mobile-only {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+    }
+}
+
+/* Formulario de suscripción */
+.js-newsletter-form {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+/* Campo de entrada */
+.js-newsletter-form input[type="email"] {
+    font-family: "apercu mono", sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    border: 1px solid black;
+    width: 250px;
+}
+
+/* Botón de envío */
+.js-newsletter-form input[type="submit"] {
+    font-family: "apercu mono", sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.js-newsletter-form input[type="submit"]:hover {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+/* Mensaje de éxito */
+.js-newsletter-success {
+    font-family: "apercu mono", sans-serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: green;
+    display: none;
+}
+
+/* Animación al pasar el mouse */
+.footer__row-item:hover {
+    animation-play-state: running;
+}
